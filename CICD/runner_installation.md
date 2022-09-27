@@ -1,29 +1,29 @@
 #### install gitlab runner on linux doc
 https://docs.gitlab.com/runner/install/linux-repository.html
 
-# Add the official GitLab repository:
-curl -L "https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh" | sudo bash
+#### Add the official GitLab repository:
+`curl -L "https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh" | sudo bash`
 
-# Install the latest version of GitLab Runner
+#### Install the latest version of GitLab Runner
 sudo apt-get install gitlab-runner
 
-# check version
+#### check version
 sudo gitlab-runner --version
 
-# check status
+#### check status
 sudo gitlab-runner status
 
-# register runner
+#### register runner
 sudo gitlab-runner register
 
-# then type URL and registration token from Setting - CI/CD - Runners
-# enter description and tags (macos, local) and note
-# and executor type (shell)
+#### then type URL and registration token from Setting - CI/CD - Runners
+#### enter description and tags (macos, local) and note
+#### and executor type (shell)
 
-# start runner
+#### start runner
 sudo gitlab-runner start
 
-# configuration file
+#### configuration file
 /etc/gitlab-runner/config.toml
 
 # install npm on runner
