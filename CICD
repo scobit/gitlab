@@ -1,1 +1,13 @@
+.gitlab-ci.yml
+add file in the root of your repository
 
+Gitlab detects the file and runs the scripts defined in the jobs.
+On every commit, gitlab triggers the pipeline automatically.
+By default, pipeline is triggered automatically for all branches for the last commit
+Pipeline configuration applies to all git branches
+
+Pipeline logic becomes part of application code - Infrastructure as Code
+
+Pipeline - the top level component of CICD
+
+A pipeline consists of jobs and stages
