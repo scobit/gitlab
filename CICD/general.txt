@@ -10,4 +10,46 @@ Pipeline logic becomes part of application code - Infrastructure as Code
 
 Pipeline - the top level component of CICD
 
-A pipeline consists of jobs and stages
+A pipeline consists of jobs and stages.
+
+Gitlab execution flow
+1. Runner requests new jobs from GitLab instance 
+2. Runner compiles and sends the job's payload to Executor
+3. Executor clones sources or downloads artifacts from GitLab instance and executes the job
+4. Executor returns job output and status to the Runner
+5. Runner updates job output and status to GitLab instance
+
+By default, GitLab uses one of its shared runners to run CI/CD job.
+These shared runners are maintained by GitLab.
+Docker Machine Executors are used for them.
+
+CI/CD jobs can get executed on different runners and machines.
+
+Jobs are executed in completely isolated environments with
+ - Docker
+ - Docker Machine
+ - Virtual Machine Executors
+ 
+Scope of Runners:
+
+Shared Runners - available to all groups and projects in a GitLab instance.
+
+Group Runners - available to all projects in a group.
+
+Specific Runners - associated with a specific project. Typically used for one project at a time.
+Specific Runners:
+ - for security reasons
+ - jobs with specific requirements
+ - projects with a lot of CI activity
+
+Specific Runners are associated with specific projects.
+Specific Runners must be enabled for each project specifically.
+
+
+Specific Runners are self-managed
+1. Set up machine
+2. install GitLab runner program
+3. Connect to GitLab instance
+
+Runner registering = binding the runner to a specific GitLab instance, setting up the connection between gitlab and runner.
+
