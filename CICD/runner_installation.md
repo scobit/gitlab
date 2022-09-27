@@ -26,6 +26,13 @@ sudo gitlab-runner start
 # configuration file
 /etc/gitlab-runner/config.toml
 
+# install npm on runner
+sudo apt update
+sudo apt install nodejs
+node -v
+sudo apt install npm
+npm -v
+
 
 ### install gitlab runner on mac os doc
 https://docs.gitlab.com/runner/install/osx.html
