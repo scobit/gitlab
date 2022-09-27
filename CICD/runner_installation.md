@@ -38,6 +38,22 @@ sudo gitlab-runner start
 #### check version of npm
 npm -v
 
+## Docker runner on linux
+#### We nedd to install docker only, instead of having to install all the tools.
+#### install docker
+`sudo apt install docker.io`
+#### add current user to docker group
+`sudo usermod -aG docker $USER`
+#### logout / login
+#### check containers
+`sudo docker ps`
+
+
+# choose docker executor and the default docker image (alpine:3.15.1)
+sudo gitlab-runner register
+
+# start runner
+sudo gitlab-runner start
 
 ### install gitlab runner on mac os doc
 https://docs.gitlab.com/runner/install/osx.html
