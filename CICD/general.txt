@@ -53,3 +53,133 @@ Specific Runners are self-managed
 
 Runner registering = binding the runner to a specific GitLab instance, setting up the connection between gitlab and runner.
 
+Best practice - run some tests to validate our code before merging it into the main branch.
+
+We can group multiple jobs into stages that run in a defined order (default stage name - Test).
+
+Multiple jobs in the same stage are executed in parallel.
+
+Only if all jobs in a stage succeed, the pipeline moves on the next stage.
+
+If any job in a stage fails, the next stage is not executed and the pipeline ends.
+
+Stage - logically group jobs that belong together.
+
+Code tests can run in parallel, independent from another.
+
+In pipeline GUI we can show job dependencies, also in editor tab we can see "Visualize", also "Lint" tab in editor.
+
+In the script pipeline can run OS commands of runner, also we can run linux commands in a seoarate shell script.
+
+Each pipeline is run on a fresh (new) environment. This is a great thing because we always sure in our environment, it does not depend on a previous state.
+
+Job - basic building block of pipeline, defines what to do (step in a pipeline), we can define as many jobs as we want.
+
+We can define arbitrary names for jobs.
+
+Job must contain at least the script clause (atribute).
+script specify the commands to execute (any for OS).
+
+before_script - commands that should run before script command.
+
+after_script - define commands that run after each job, including failed jobs.
+
+before_script and after_script are job keywords.
+
+Gitlab server (instance / installation) - manages the pipeline execution and stores the pipeline results.
+
+Gitlab can be: 
+SaaS - managed by gitlab
+or
+Self-managed
+
+Runnber can be:
+provided by Gitlab
+or
+Self-managed
+
+Gitlab Runner - program that you should install on a machine, that's separate from the one that hosts the gitlab instance.
+
+Shared Runners - the provided runners by Gitlab are shared runners.
+
+Executor determines the environment each jobs runs in.
+
+All required programs for executing the jobs, need to be installed manually.
+
+Executors
+- shell
+
+- docker
+Commands are executed inside a container.
+Jobs run on user provided docker images.
+Each job runs in a separate and isolated container.
+All tools needed can be put in the docker image, you only need to install docker itself.
+Because of isolation, no version conflicts.
+
+- virtual machine
+Isaolated environment.
+Takes longer, overhead of loading operating system.
+
+- kubernetes
+Utilize your high availability setup.
+Kubernetes executor will create a new pod for each gitlab job.
+
+- docker machine
+Special version of the docker executor.
+Supports auto-scaling.
+Let's you create Docker hosts on your computer, on cloud providers on demand, dynamically creates servers, install docker on them and configures the client to talk to them.
+Docker machine executor works like the normal docker executor.
+GitLab's shared runner are using docker machine executor.
+Docker machine has been deprecated by docker!
+GitLab will replace it in the future.
+
+- ssh
+Least supported among all executors.
+It makes gitlab runner connect to an external server and runs the jobs there.
+
+- parallels executor
+Parralels is one of the 2 virtual machine executors. Other is VirtualBox.
+
+Best solution - docker executor.
+
+find table of executors!!!
+
+when you register a runner, you must choose an executor.
+1 executor per runner.
+
+Multiple executors on same server - register multiple runners on same host.
+
+SaaS - managed by GitLab
+Self-managed runners
+
+Gitlab's shared runners
+
+Self_managed GitLab Instance
+e.g. for security reasons
+have full control over your infrastructure
+save infrastructure cost
+
+Ensuring Compability
+GitLab Runner major minor version should stay in sync with the GitLab major and minor version.
+
+Between minor version updates, backward compability is guaranteed, but new features may require Runner to be on the same minor version.
+
+If we use GitLab with own Runners - keep Runner updated to the latest version!
+Because GitLab is updated continuosly!
+
+SaaS - Software as a Service.
+
+Scope of the Runners:
+Shared - available to all groups and projects in GitLab instance.
+Specific - associated with specific projects.
+Group - available to all projects in a group.
+
+ 
+Executors - the type of the executor defines the environment in which the job gets executed.
+
+Shell: executes job on the OS of the server directly
+Docker and Docker Machine - executes job inside Docker Container
+Virtual Machine - executes job in an already created VM
+Kubernetes - run job in a pod
+SSH
+
