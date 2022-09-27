@@ -1,0 +1,20 @@
+Predefined Variables doc:
+https://docs.gitlab.com/ee/ci/variables/predefined_variables.html
+
+Use case of variables:
+Storing values you want to re-use multiple times.
+Reducing code duplication.
+
+Project Variables - stored outside the git repository (not in the .gitlab-ci.yml).
+Ideal for tokens and passwords, which should not be included in the repository for security reasons.
+
+Variables should be in upper case.
+
+Variables definitions
+1. define variable in a job:
+only that job can use it
+
+2. define variable at top level of the file:
+globally available and all jobs can use it
+
+Variables saved in the file directly should store only non-sensitive data, because the values will be visible in the repository.
