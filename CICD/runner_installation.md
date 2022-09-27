@@ -47,15 +47,12 @@ npm -v
 #### logout / login
 #### check containers
 `sudo docker ps`
-
-
-# choose docker executor and the default docker image (alpine:3.15.1)
-sudo gitlab-runner register
-
-# start runner
+#### choose docker executor and the default docker image (alpine:3.15.1)
+`sudo gitlab-runner register`
+#### start runner
 sudo gitlab-runner start
 
-### install gitlab runner on mac os doc
+## install gitlab runner on mac os doc
 https://docs.gitlab.com/runner/install/osx.html
 
 # Install GitLab Runner
