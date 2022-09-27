@@ -39,7 +39,7 @@ sudo gitlab-runner start
 npm -v
 
 ## Docker runner on linux
-#### We nedd to install docker only, instead of having to install all the tools.
+#### We need to install docker only, instead of having to install all the tools.
 #### install docker
 `sudo apt install docker.io`
 #### add current user to docker group
