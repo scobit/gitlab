@@ -1,20 +1,22 @@
-#### install gitlab runner on linux doc
+## Install GitLab Runner on linux
+
+#### official doc
 https://docs.gitlab.com/runner/install/linux-repository.html
 
 #### Add the official GitLab repository:
 `curl -L "https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh" | sudo bash`
 
 #### Install the latest version of GitLab Runner
-sudo apt-get install gitlab-runner
+`sudo apt-get install gitlab-runner`
 
 #### check version
-sudo gitlab-runner --version
+`sudo gitlab-runner --version`
 
 #### check status
-sudo gitlab-runner status
+`sudo gitlab-runner status`
 
 #### register runner
-sudo gitlab-runner register
+`sudo gitlab-runner register`
 
 #### then type URL and registration token from Setting - CI/CD - Runners
 #### enter description and tags (macos, local) and note
@@ -26,11 +28,14 @@ sudo gitlab-runner start
 #### configuration file
 /etc/gitlab-runner/config.toml
 
-# install npm on runner
-sudo apt update
-sudo apt install nodejs
-node -v
-sudo apt install npm
+## install npm on runner
+#### install nodejs
+`sudo apt install nodejs`
+#### check version of nodejs
+`node -v`
+#### install npm
+`sudo apt install npm`
+#### check version of npm
 npm -v
 
 
